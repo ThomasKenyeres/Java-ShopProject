@@ -47,6 +47,12 @@ public class Tej {
 
     @Override
     public String toString() {
-        return super.toString();
+        String result = "Jó még: " + joMeg();
+        result += "; Űrtartalom: " + getUrtartalom();
+        result += "; Gyártó: " + getGyarto();
+        result += "; Szavatossági idő: " + getSzavatossagiIdo();
+        result += "; Zsírtartalom: " + getZsirtartalom();
+        result += "; Ár: " + getAr();
+        return result;
     }
 }

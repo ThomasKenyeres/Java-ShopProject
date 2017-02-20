@@ -14,6 +14,12 @@ public class Bolt {
         this.tejpult = tejpult;
     }
 
+    public Bolt(String nev, String cim, String tulajdonos) {
+        this.nev = nev;
+        this.cim = cim;
+        this.tulajdonos = tulajdonos;
+    }
+
     public String getNev() {
         return nev;
     }
@@ -45,4 +51,14 @@ public class Bolt {
         }
         return null;
     }
+
+    public void feltoltTej(Tej m) {
+        Tej[] ujTejPult = new Tej[tejpult.length + 1];
+        for (int i = 0; i < tejpult.length; i++) {
+            ujTejPult[i] = tejpult[i];
+        }
+        ujTejPult[ujTejPult.length - 1] = m;
+        tejpult = ujTejPult;
+    }
+
 }

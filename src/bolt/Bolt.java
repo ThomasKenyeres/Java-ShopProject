@@ -1,13 +1,16 @@
 package bolt;
 
+import java.util.Iterator;
+import java.util.Vector;
+
 public class Bolt {
     private String nev;
     private String cim;
     private String tulajdonos;
-    private Tej[] tejpult;
+    private Vector tejpult;
 
 
-    public Bolt(String nev, String cim, String tulajdonos, Tej[] tejpult) {
+    public Bolt(String nev, String cim, String tulajdonos, Vector tejpult) {
         this.nev = nev;
         this.cim = cim;
         this.tulajdonos = tulajdonos;
@@ -33,43 +36,28 @@ public class Bolt {
     }
 
     public boolean vanMegTej() {
-        for (int i = 0; i < tejpult.length; i++) {
-            if (tejpult[i] != null) {
-                return true;
-            }
+        if (tejpult.isEmpty()) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     public Tej vasarolTej(Tej m) {
-        Tej tej = null;
-        Tej[] ujTejPult = new Tej[tejpult.length-1];
-        boolean megveve = false;
-        for (int i = 0; i < tejpult.length; i++) {
-            Tej aktualisTej = tejpult[i];
+        Iterator iterator = tejpult.iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            Tej aktualisTej = (Tej) iterator.next();
             if (aktualisTej.equals(m)) {
-                tej = aktualisTej;
-                megveve = true;
+                tejpult.remove(i);
+                return aktualisTej;
             }
-            else {
-                if (megveve) {
-                    ujTejPult[i-1] = tej;
-                }
-                else if (ujTejPult.length != i){
-                    ujTejPult[i] = tej;
-                }
-            }
+            i++;
         }
-        return tej;
+        return null;
     }
 
     public void feltoltTej(Tej m) {
-        Tej[] ujTejPult = new Tej[tejpult.length + 1];
-        for (int i = 0; i < tejpult.length; i++) {
-            ujTejPult[i] = tejpult[i];
-        }
-        ujTejPult[ujTejPult.length - 1] = m;
-        tejpult = ujTejPult;
+        tejpult.add(m);
     }
 
 }

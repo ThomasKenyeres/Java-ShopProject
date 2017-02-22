@@ -42,12 +42,12 @@ public class Bolt {
         return true;
     }
 
-    public Tej vasarolTej(Tej m) {
+    public Tej vasarolTej(long vonalKod) {
         Iterator iterator = tejpult.iterator();
         int i = 0;
         while (iterator.hasNext()) {
             Tej aktualisTej = (Tej) iterator.next();
-            if (aktualisTej.equals(m)) {
+            if (aktualisTej.getVonalKod() == vonalKod) {
                 tejpult.remove(i);
                 return aktualisTej;
             }

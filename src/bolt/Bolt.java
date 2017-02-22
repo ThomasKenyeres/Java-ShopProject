@@ -5,7 +5,7 @@ public class Bolt {
     private String cim;
     private String tulajdonos;
     private Tej[] tejpult;
-    private int flag;
+
 
     public Bolt(String nev, String cim, String tulajdonos, Tej[] tejpult) {
         this.nev = nev;
@@ -42,14 +42,25 @@ public class Bolt {
     }
 
     public Tej vasarolTej(Tej m) {
+        Tej tej = null;
+        Tej[] ujTejPult = new Tej[tejpult.length-1];
+        boolean megveve = false;
         for (int i = 0; i < tejpult.length; i++) {
-            if (m.equals(tejpult[i])) {
-                Tej tej = tejpult[i];
-                tejpult[i] = null;
-                return tej;
+            Tej aktualisTej = tejpult[i];
+            if (aktualisTej.equals(m)) {
+                tej = aktualisTej;
+                megveve = true;
+            }
+            else {
+                if (megveve) {
+                    ujTejPult[i-1] = tej;
+                }
+                else if (ujTejPult.length != i){
+                    ujTejPult[i] = tej;
+                }
             }
         }
-        return null;
+        return tej;
     }
 
     public void feltoltTej(Tej m) {

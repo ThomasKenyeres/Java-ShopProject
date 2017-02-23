@@ -2,7 +2,7 @@ package bolt;
 
 import java.util.Date;
 
-public class Tej {
+public abstract class Tej {
     private long vonalKod;
 
     private final int LITER = 4;

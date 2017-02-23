@@ -1,16 +1,16 @@
 package bolt;
 
+import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.Vector;
 
 public class Bolt {
     private String nev;
     private String cim;
     private String tulajdonos;
-    private Vector tejpult;
+    private Hashtable tejpult;
 
 
-    public Bolt(String nev, String cim, String tulajdonos, Vector tejpult) {
+    public Bolt(String nev, String cim, String tulajdonos, Hashtable tejpult) {
         this.nev = nev;
         this.cim = cim;
         this.tulajdonos = tulajdonos;
@@ -21,6 +21,7 @@ public class Bolt {
         this.nev = nev;
         this.cim = cim;
         this.tulajdonos = tulajdonos;
+        this.tejpult = new Hashtable<Tej, Integer>();
     }
 
     public String getNev() {
@@ -43,21 +44,76 @@ public class Bolt {
     }
 
     public Tej vasarolTej(long vonalKod) {
-        Iterator iterator = tejpult.iterator();
-        int i = 0;
+        Iterator iterator = tejpult.keySet().iterator();
+        Tej tej = null;
         while (iterator.hasNext()) {
             Tej aktualisTej = (Tej) iterator.next();
             if (aktualisTej.getVonalKod() == vonalKod) {
-                tejpult.remove(i);
-                return aktualisTej;
+                tej = aktualisTej;
+                Integer value = (Integer) tejpult.get(tej);
+                if (value > 1) {
+                    tejpult.put(tej, --value);
+                }
+                else {
+                    tejpult.remove(tej);
+                }
             }
-            i++;
         }
-        return null;
+        return tej;
     }
 
     public void feltoltTej(Tej m) {
-        tejpult.add(m);
+        if (tejpult.containsKey(m)) {
+            Integer value = (Integer) tejpult.get(m);
+            tejpult.put(m, ++value);
+        }
+        else {
+            tejpult.put(m, 1);
+        }
+    }
+
+    public class BoltBejegyzes {
+        private Tej t;
+        private int mennyiseg;
+        private int ar;
+
+        public BoltBejegyzes(Tej t, int mennyiseg, int ar) {
+            this.t = t;
+            this.mennyiseg = mennyiseg;
+            this.ar = ar;
+        }
+
+        public void adMennyiseg(int mennyiseg) {
+            setMennyiseg(getMennyiseg() + mennyiseg);
+        }
+
+        public void levonMennyiseg(int mennyiseg) {
+            setMennyiseg(getMennyiseg() - mennyiseg);
+        }
+
+        public Tej getT() {
+            return t;
+        }
+
+        public void setT(Tej t) {
+            this.t = t;
+        }
+
+        public int getMennyiseg() {
+            return mennyiseg;
+        }
+
+        public void setMennyiseg(int mennyiseg) {
+            this.mennyiseg = mennyiseg;
+        }
+
+        public int getAr() {
+            return ar;
+        }
+
+        public void setAr(int ar) {
+            this.ar = ar;
+        }
     }
 
 }

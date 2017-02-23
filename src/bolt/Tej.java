@@ -15,16 +15,16 @@ public class Tej {
     private String gyarto;
     private Date szavatossagiIdo;
     private double zsirtartalom;
-    private long ar;
 
 
-    public Tej(long vonalKod, int urtartalom, String gyarto, Date szavatossagiIdo, double zsirtartalom, long ar) {
+
+    public Tej(long vonalKod, int urtartalom, String gyarto, Date szavatossagiIdo, double zsirtartalom) {
         this.vonalKod = vonalKod;
         this.urtartalom = urtartalom;
         this.gyarto = gyarto;
         this.szavatossagiIdo = szavatossagiIdo;
         this.zsirtartalom = zsirtartalom;
-        this.ar = ar;
+
     }
 
     public boolean joMeg() {
@@ -51,10 +51,6 @@ public class Tej {
         return zsirtartalom;
     }
 
-    public long getAr() {
-        return ar;
-    }
-
     public long getVonalKod() {
         return vonalKod;
     }
@@ -66,7 +62,6 @@ public class Tej {
         result += "; Gyártó: " + getGyarto();
         result += "; Szavatossági idő: " + getSzavatossagiIdo();
         result += "; Zsírtartalom: " + getZsirtartalom();
-        result += "; Ár: " + getAr();
         return result;
     }
 }

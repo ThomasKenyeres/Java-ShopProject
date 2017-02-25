@@ -1,5 +1,9 @@
 package bolt;
 
+import bolt.aruk.Elelmiszer;
+import bolt.aruk.Sajt;
+import bolt.aruk.Tej;
+
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;

@@ -1,4 +1,6 @@
-package bolt;
+package bolt.aruk;
+
+import bolt.aruk.Elelmiszer;
 
 import java.util.Date;
 

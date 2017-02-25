@@ -1,8 +1,10 @@
-package bolt;
+package bolt.aruk;
+
+import bolt.aruk.Elelmiszer;
 
 import java.util.Date;
 
-public abstract class Tej extends Elelmiszer{
+public abstract class Tej extends Elelmiszer {
     private long vonalKod;
 
     private final int LITER = 4;

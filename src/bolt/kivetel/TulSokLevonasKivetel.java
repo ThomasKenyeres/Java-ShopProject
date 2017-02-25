@@ -1,4 +1,6 @@
-package bolt;
+package bolt.kivetel;
+
+import bolt.BoltKivetel;
 
 public class TulSokLevonasKivetel extends BoltKivetel {
     public TulSokLevonasKivetel(String s) {

@@ -5,8 +5,6 @@ import bolt.Aru;
 import java.util.Date;
 
 public abstract class Elelmiszer extends Aru {
-    long vonalKod;
-    String gyarto;
     Date szavatossagiIdo;
 
     public Elelmiszer(long vonalKod, String gyarto, Date szavatossagiIdo) {
@@ -23,7 +21,7 @@ public abstract class Elelmiszer extends Aru {
         return true;
     }
 
-    public long getVonalKod() {
+    public Long getVonalKod() {
         return vonalKod;
     }
 

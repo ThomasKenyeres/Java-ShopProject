@@ -5,7 +5,7 @@ import bolt.aruk.Elelmiszer;
 import java.util.Date;
 
 public abstract class Tej extends Elelmiszer {
-    private long vonalKod;
+    private Long vonalKod;
 
     private final int LITER = 4;
     private final int FELLITER = 2;
@@ -51,7 +51,7 @@ public abstract class Tej extends Elelmiszer {
         return zsirtartalom;
     }
 
-    public long getVonalKod() {
+    public Long getVonalKod() {
         return vonalKod;
     }
 

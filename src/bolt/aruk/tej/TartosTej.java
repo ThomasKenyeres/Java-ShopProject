@@ -5,7 +5,7 @@ import bolt.aruk.Tej;
 import java.util.Date;
 
 public class TartosTej extends Tej {
-    public TartosTej(long vonalKod, int urtartalom, String gyarto, Date szavatossagiIdo, double zsirtartalom) {
+    public TartosTej(Long vonalKod, int urtartalom, String gyarto, Date szavatossagiIdo, double zsirtartalom) {
         super(vonalKod, urtartalom, gyarto, szavatossagiIdo, zsirtartalom);
     }
 }

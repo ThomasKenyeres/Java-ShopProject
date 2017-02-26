@@ -5,18 +5,18 @@ import bolt.aruk.Elelmiszer;
 import java.util.Date;
 
 public abstract class Tej extends Elelmiszer {
-    private Long vonalKod;
+    protected Long vonalKod;
 
-    private final int LITER = 4;
-    private final int FELLITER = 2;
-    private final int POHAR = 1;
-    private final double ZSIROS = 3.5;
-    private final double FELZSIROS = 1.5;
+    public static final int LITER = 4;
+    public static final int FELLITER = 2;
+    public static final int POHAR = 1;
+    public static final double ZSIROS = 3.5;
+    public static final double FELZSIROS = 1.5;
 
-    private int urtartalom;
-    private String gyarto;
-    private Date szavatossagiIdo;
-    private double zsirtartalom;
+    protected int urtartalom;
+    protected String gyarto;
+    protected Date szavatossagiIdo;
+    protected double zsirtartalom;
 
 
 
